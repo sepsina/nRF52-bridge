@@ -1,0 +1,35 @@
+<div class="col-top-strech" id="all-dlg"
+     cdkDrag
+     cdkDragRootElement="#move-dlg"
+     cdkDragBoundary=".cdk-overlay-container">
+
+    <div class='row-right-stretch dlg-header'>
+        <div class="row-left dlg-title" cdkDragHandle>
+            {{title()}}
+        </div>
+        <button (click)="close()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+    <div class="col-top-strech" id="dlg-body">
+        <div class="col-top-strech cards-common">
+            <div class="row-center">
+                <label>scroll:</label>
+                <select #scrollSel (change)="onScrollSelected(scrollSel.value)" >
+                    @for(scroll of allScrolls(); track scroll.name; let i = $index) {
+                        <option value="{{i}}">
+                            {{scroll.name}}
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class='row-right dlg-header'>
+        <button (click)="save()">
+            save
+        </button>
+    </div>
+</div>
+

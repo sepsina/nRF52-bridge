@@ -1,0 +1,99 @@
+<div class="col-top-strech" id="dlg-frame"
+     cdkDrag
+     cdkDragRootElement="#x-stat-dlg"
+     cdkDragBoundary=".cdk-overlay-container">
+
+    <div class='row-right-stretch dlg-header'>
+        <div class="row-left dlg-title" cdkDragHandle>
+            x-stat
+        </div>
+        <button (click)="close()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+    <div class="col-top-strech" id="dlg-body">
+        <div class="col-top-strech cards-common">
+            <div class="row-center">
+                <label>t-meter:</label>
+                <select #statSel [ngModel]="m_stat_sel()" (ngModelChange)="statSelect($event)">
+                    @for(stat of thermostats(); track stat.addr; let i = $index) {
+                        <option value="{{i}}">
+                            {{stat.name}}
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="row-right">
+                <label>set point:</label>
+                <input #setPoint
+                       [disabled]="!validStat"
+                       id="setPoint"
+                       type="number"
+                       [min]="minSetPoint"
+                       [max]="maxSetPoint"
+                       [ngModel]="m_set_point()"
+                       (ngModelChange)="onSetPointChange($event)"
+                       (blur)="onSetPointBlur()">
+            </div>
+            <div class="col-top-strech part-desc">
+                @for(desc of thermostatDesc(); track desc.key){
+                    <div>
+                        <span class="desc-label">{{desc.key}}</span>
+                        <span class="desc-value">{{desc.value}}</span>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-top-strech cards-common">
+            <div class="row-center">
+                <label>used:</label>
+                <select #usedSel [ngModel]="m_used_sel()" (ngModelChange)="onUsedSelect($event)">
+                    @for(on_off of on_off_used(); track on_off.addr; let i = $index) {
+                        <option value="{{i}}">
+                            {{on_off.name}}
+                        </option>
+                    }
+                </select>
+                <button (click)="delActuator()">
+                    <i class="fa fa-minus-circle"></i>
+                </button>
+            </div>
+            <div class="col-top-strech part-desc">
+                @for(desc of usedDesc(); track desc.key){
+                    <div>
+                        <span class="desc-label">{{desc.key}}</span>
+                        <span class="desc-value">{{desc.value}}</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="col-top-strech cards-common">
+            <div class="row-center">
+                <label>free:</label>
+                <select #freeSel [ngModel]="m_free_sel()" (ngModelChange)="onFreeSelect($event)">
+                    @for(on_off of on_off_free(); track on_off.addr; let i = $index) {
+                        <option value="{{i}}">
+                            {{on_off.name}}
+                        </option>
+                    }
+                </select>
+                <button (click)="addActuator()">
+                    <i class="fa fa-plus-circle"></i>
+                </button>
+            </div>
+            <div class="col-top-strech part-desc">
+                @for(desc of freeDesc(); track desc.key){
+                    <div>
+                        <span class="desc-label">{{desc.key}}</span>
+                        <span class="desc-value">{{desc.value}}</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class='row-right dlg-header'>
+
+    </div>
+
+</div>

@@ -1,0 +1,170 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100%;
+}
+
+#toolbar-frame {
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    padding: 6px;
+}
+
+#app-title {
+    width: 100%;
+    text-align: left;
+    color: gray;
+}
+
+#main-container {
+    overflow: hidden;
+    gap: 0;
+}
+
+#side-bar {
+    border-right: 2px solid lightgray;
+    overflow: auto;
+    padding: 5px;
+}
+
+.side-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    border: 1px solid lightgray;
+    padding: 0 5px;
+}
+
+#plan-container {
+    flex: 1 1 auto;
+    display: flex;
+    overflow: auto;
+    padding-right: 1px;
+}
+
+#floor-plan {
+    flex: 1 1 auto;
+    margin: 0;
+    position: relative;
+}
+
+.item {
+    position: absolute;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.footer {
+    border: 1px solid lightgray;
+    background-color: lightgray;
+    padding: 5px;
+    padding-right: 10px;
+    min-height: 40px;
+    font-size: 14px;
+}
+
+#drag-flag {
+    gap: 6px;
+}
+
+#footStat {
+    flex: 1 1 100%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    color: yellow;
+    font-size: 40px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:100vh;
+    width:100%;
+    background-color:rgba(0, 0, 0, 0.286);
+    z-index: 10;
+}
+
+.ctx-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border: solid 1px rgb(220, 220, 220);
+}
+
+.ctx-menu-item {
+    min-width: 64px;
+    border: none;
+    outline: none;
+    user-select: none;
+    padding: 10px 16px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.ctx-menu-item-disabled {
+    min-width: 64px;
+    border: none;
+    outline: none;
+    user-select: none;
+    padding: 10px 16px;
+    background-color: lightblue;
+    cursor: default;
+}
+
+.ctx-menu-item:hover {
+    background-color: rgb(208, 208, 208);
+}
+
+.btn {
+    min-width: 5rem;
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 8px;
+    color: black;
+    padding: 6px;
+    font-size: 1.5rem;
+    //cursor: pointer;
+}
+
+.btn:hover {
+    background-color: lightblue;
+}
+
+select {
+    height: 2rem;
+    min-width: 120px;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+}
+
+label {
+    white-space: nowrap;
+    //color: gray;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+    accent-color: gray;
+}
+
+input[type="checkbox"]:not(:checked) {
+    opacity:0.7;
+}
+
+
+
+

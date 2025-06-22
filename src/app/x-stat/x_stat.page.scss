@@ -1,0 +1,88 @@
+:host {
+    display: flex;
+    max-height: 90vh;
+    min-width: 300px;
+    border-radius: 6px;
+    background-color: white;
+}
+
+#dlg-frame {
+    width: 100%;
+}
+
+.dlg-header {
+    min-height: 40px;
+    background: #e8e8e8;
+    padding: 6px;
+}
+
+#dlg-body {
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.dlg-title {
+    width: 100%;
+    padding-left: 6px;
+    user-select: none;
+    cursor: move;
+    color: gray;
+    font-size: 1rem;
+}
+
+.cards-common {
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.part-desc {
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    min-height: 80px;
+    padding: 0.5em;
+    gap: 2px;
+  }
+
+.desc-label {
+    color: gray;
+}
+
+.desc-value {
+    padding-left: 0.4rem;
+}
+
+input[type="text"] {
+    outline: none;
+    border: none;
+    padding: 4px 8px;
+    font-size: 1rem;
+    flex: 1 1 100%;
+}
+
+input[type="number"] {
+    padding: 4px;
+    font-size: 1rem;
+    text-align: center;
+    width: 3rem;
+}
+
+select {
+    min-height: 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px;
+    overflow: auto;
+}
+
+button {
+    font-size: 1.0rem;
+    color: gray;
+    padding: 4px 8px;
+}
+
+label {
+    white-space: nowrap;
+    color: gray;
+}

@@ -1,0 +1,89 @@
+:host {
+    display: flex;
+    max-height: 90vh;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.dlg-header {
+    background: #e8e8e8;
+    padding: 6px;
+}
+
+#dlg-body {
+    padding: 0 10px;
+    overflow: auto;
+}
+
+label {
+    white-space: nowrap;
+    color: gray;
+}
+
+button {
+    font-size: 1.0rem;
+    color: gray;
+}
+
+input[type="number"] {
+    padding: 4px;
+    font-size: 1rem;
+    text-align: center;
+    width: 3rem;
+}
+
+input[type="color"] {
+    padding: 2px;
+    width: 3rem;
+    height: 2rem;
+}
+
+input[type="text"] {
+    padding: 6px;
+    font-size: 1rem;
+    flex: 1 1 100%;
+}
+
+input[type="text"]:invalid {
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: yellow;
+}
+
+select {
+    height: 2rem;
+    width: 100%;
+    font-size: 1rem;
+    outline: none;
+}
+
+.dlg-title {
+    width: 100%;
+    padding-left: 6px;
+    user-select: none;
+    cursor: move;
+    color: gray;
+    font-size: 1rem;
+}
+
+#testCont {
+    padding: 10px;
+    border-top: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
+}
+
+.cards-common {
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+#padd-rect {
+    width: 4rem;
+    height: 3rem;
+    border: 1px solid gray;
+}
+
+#saveBtn {
+    padding: 4px 20px;
+}

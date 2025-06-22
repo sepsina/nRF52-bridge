@@ -1,0 +1,43 @@
+<div class="col-top-strech" id="all-dlg"
+     cdkDrag
+     cdkDragRootElement="#corr-dlg"
+     cdkDragBoundary=".cdk-overlay-container">
+
+    <div class='row-right-stretch dlg-header'>
+        <div class="row-left dlg-title" cdkDragHandle>
+            {{title()}}
+        </div>
+        <button (click)="close()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+    <div class="col-top-strech" id="dlg-body">
+        <div class="col-top-strech cards-common">
+            <div class="row-center">
+                <label>units:</label>
+                <select #unitSel [ngModel]="m_unit_sel()" (ngModelChange)="unitSelect($event)" >
+                    @for(unit of allUnits(); track unit.name; let i = $index) {
+                        <option value="{{i}}">
+                            {{unit.name}}
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="row-left">
+                <label>offset:</label>
+                <input #offset
+                       type="number"
+                       [ngModel]="m_offset()"
+                       (ngModelChange)="onOffsetChange($event)"
+                       (blur)="onOffsetBlur()">
+            </div>
+        </div>
+    </div>
+
+    <div class='row-right dlg-header'>
+        <button (click)="save()">
+            save
+        </button>
+    </div>
+</div>
+

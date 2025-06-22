@@ -1,0 +1,106 @@
+<div class="row-left-stretch" id="main-container">
+    <div class="col-top-strech" id="side-bar">
+        <button class="btn" (click)="editScrolls()">
+            <i class="fa fa-caret-up"></i><i class="fa fa-caret-down"></i>
+        </button>
+        <button class="btn" (click)="editThermostats()">
+            <i class="fa fa-thermometer-full"></i>
+        </button>
+        <button class="btn" (click)="showLogs()">
+            <i class="fa fa-list-alt"></i>
+        </button>
+    </div>
+    <div id="plan-container" #containerRef>
+        <div id="floor-plan" #floorPlanRef resizeObserver (resize)="onResize($event)">
+            @for(keyVal of storage.itemMap() | keyvalue; track keyVal.key){
+                <div #itemRef
+                    class="item"
+                    [ngStyle]="getItemStyle(keyVal)"
+                    cdkDrag
+                    #dragRef="cdkDrag"
+                    [cdkDragFreeDragPosition]="getItemPosition(keyVal)!"
+                    [cdkDragBoundary]="floorPlanRef"
+                    (cdkDragEnded)="onDragEnded($event, keyVal)"
+                    (cdkDragStarted)="onDragStarted($event, keyVal)"
+                    (mouseenter)="mouseEnterItem(keyVal, dragRef)"
+                    (mouseleave)="mouseLeaveItem(keyVal, itemRef)"
+                    cdkOverlayOrigin
+                    #origin="cdkOverlayOrigin"
+                    (click)="ctxMenuOpen(keyVal, origin)"
+                    (contextmenu)="disableRightClick($event)">
+                    {{keyVal.value.formatedVal}}
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div class="row-right footer">
+    <div class="row-left" id="drag-flag">
+        <label>drag enable:</label>
+        <input
+            #cbDrag
+            type="checkbox"
+            (click)="dragChanged()">
+    </div>
+    <div class="row-right" id="footStat">
+        {{footerStatus()}}
+    </div>
+    <select
+        #scrollSel
+        (change)="scrollSelChange(scrollSel.value)">
+        @for(scroll of storage.scrolls(); track scroll.name; let i = $index){
+            <option value="{{i}}">
+                {{scroll.name}}
+            </option>
+        }
+    </select>
+</div>
+
+<ng-template cdkConnectedOverlay
+             [cdkConnectedOverlayOrigin]="ctx_origin"
+             [cdkConnectedOverlayOpen]="ctx_open()"
+             (overlayOutsideClick)="ctx_open.set(false)"
+             [cdkConnectedOverlayDisableClose]="true"
+             (overlayKeydown)="ctxKeyEvt($event)">
+    <div cdkMenu class="ctx-menu">
+        <button cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="setName()">
+            Name
+        </button>
+        @if(corrFlag) {
+            <button
+                cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="setCorr()">
+                Correction
+            </button>
+        }
+        <button cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="setStyles()">
+            Styles
+        </button>
+        @if(ctrlFlag){
+            <button
+                cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="showSSR()">
+            On/Off
+            </button>
+        }
+        @if(graphFlag){
+            <button
+                cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="graph()">
+                Graph
+            </button>
+        }
+        <button cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="showAbout()">
+            About
+        </button>
+    </div>
+</ng-template>

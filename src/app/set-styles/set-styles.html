@@ -1,0 +1,172 @@
+<div class="col-top-strech"
+     cdkDrag
+     cdkDragRootElement="#styles-dlg"
+     cdkDragBoundary=".cdk-overlay-container">
+
+    <div class='row-right dlg-header'>
+        <div class="row-left dlg-title" cdkDragHandle>
+            {{dlg_title()}}
+        </div>
+        <button (click)="close()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+
+    <div class="row-center" id="testCont">
+        <div #testView>
+            {{test_text()}}
+        </div>
+    </div>
+
+    <div class="col-top-strech" id="dlg-body">
+        <div class="row-left">
+            <label>font size:</label>
+            <input #itemFontSize
+                id="itemFontSize"
+                type="number"
+                [min]="minFontSize"
+                [max]="maxFontSize"
+                [ngModel]="m_font_size()"
+                (ngModelChange)="onFontSizeChange($event)"
+                (blur)="onFontSizeBlur()">
+        </div>
+        <div class="row-left">
+            <label>text color:</label>
+            <input #itemColor
+                id="itemColor"
+                type="color"
+                [ngModel]="m_color()"
+                (ngModelChange)="onColorChange($event)">
+        </div>
+        <div class="row-left">
+            <label>background color:</label>
+            <input #itemBackgroundColor
+                id="itemBackgroundColor"
+                type="color"
+                [ngModel]="m_bg_color()"
+                (ngModelChange)="onBackgroundColorChange($event)">
+        </div>
+        <div class="row-left">
+            <label>opacity:</label>
+            <input #itemOpacity
+                id="itemOpacity"
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                [ngModel]="m_opacity()"
+                (ngModelChange)="onOpacityChange($event)">
+        </div>
+        <div class="col-top-strech cards-common">
+            <div class="row-left">
+                border:
+            </div>
+            <div class="row-left">
+                <label>color:</label>
+                <input #itemBorderColor
+                    id="itemBorderColor"
+                    type="color"
+                    [ngModel]="m_border_color()"
+                    (ngModelChange)="onBorderColorChange($event)">
+            </div>
+            <div class="row-left">
+                <label>width:</label>
+                <input #itemBorderWidth
+                        id="itemBorderWidth"
+                        type="number"
+                        min="0"
+                        [max]="maxBorderWidth"
+                        [ngModel]="m_border_width()"
+                        (ngModelChange)="onBorderWidthChange($event)"
+                        (blur)="onBorderWidthBlur()">
+            </div>
+            <div class="row-left">
+                <label>radius:</label>
+                <input #itemBorderRadius
+                        id="itemBorderRadius"
+                        type="number"
+                        min="0"
+                        [max]="maxBorderRadius"
+                        [ngModel]="m_border_radius()"
+                        (ngModelChange)="onBorderRadiusChange($event)"
+                        (blur)="onBorderRadiusBlur()">
+            </div>
+            <div class="row-left">
+                <label>style:</label>
+                <select id="borderStyle"
+                        #borderStyle
+                        [ngModel]="m_border_style()"
+                        (ngModelChange)="onBorderStyleChange($event)">
+                    @for(style of borderStyles; track style) {
+                        <option value="{{style}}">
+                            {{style}}
+                        </option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-top-strech cards-common">
+            <div class="row-left">
+                paddings:
+            </div>
+            <div class="row-center">
+                <input #itemPaddingTop
+                    id="itemPaddingTop"
+                    type="number"
+                    min="0"
+                    [max]="maxPaddingTop"
+                    required
+                    [ngModel]="m_padding_top()"
+                    (ngModelChange)="onPaddingTopChange($event)"
+                    (blur)="onPaddingTopBlur()">
+            </div>
+            <div class="row-center">
+                <div class="col-center">
+                    <input #itemPaddingLeft
+                    id="itemPaddingLeft"
+                    type="number"
+                    min="0"
+                    [max]="maxPaddingLeft"
+                    required
+                    [ngModel]="m_padding_left()"
+                    (ngModelChange)="onPaddingLeftChange($event)"
+                    (blur)="onPaddingLeftBlur()">
+                </div>
+                <div class="col-center" id="padd-rect">
+                </div>
+                <div class="col-center">
+                    <input #itemPaddingRight
+                    id="itemPaddingRight"
+                    type="number"
+                    min="0"
+                    [max]="maxPaddingRight"
+                    required
+                    [ngModel]="m_padding_right()"
+                    (ngModelChange)="onPaddingRightChange($event)"
+                    (blur)="onPaddingRightBlur()">
+                </div>
+            </div>
+            <div class="row-center">
+                <input #itemPaddingBottom
+                    id="itemPaddingBottom"
+                    type="number"
+                    min="0"
+                    [max]="maxPaddingBottom"
+                    required
+                    [ngModel]="m_padding_bottom()"
+                    (ngModelChange)="onPaddingBottomChange($event)"
+                    (blur)="onPaddingBottomBlur()">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row-right dlg-header">
+        <div>
+            <button id="saveBtn"
+                    (click)="save()">
+                save
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+:host {
+    display: flex;
+    min-width: 250px;
+    max-height: 80%;
+    border-radius: 6px;
+    background-color: white;
+}
+
+#all-dlg {
+    width: 100%;
+}
+
+.dlg-header {
+    background: #e8e8e8;
+    padding: 6px;
+}
+
+#dlg-body {
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.dlg-title {
+    width: 100%;
+    padding-left: 6px;
+    user-select: none;
+    cursor: move;
+    color: gray;
+    font-size: 1rem;
+}
+
+.cards-common {
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+#delBtn {
+    width: 100%;
+  }
+
+.desc-label {
+    color: gray;
+}
+
+.desc-value {
+    padding-left: 0.4rem;
+}
+
+input[type="text"] {
+    padding: 4px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid lightgrey;
+}
+
+select {
+    height: 2rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 6px;
+}
+
+button {
+    font-size: 1.0rem;
+    color: gray;
+    padding: 4px 8px;
+}
+
+input[type="number"] {
+    padding: 4px;
+    font-size: 1rem;
+    text-align: left;
+    width: 4rem;
+}
+
+label {
+    white-space: nowrap;
+    color: gray;
+}
+

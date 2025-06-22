@@ -1,0 +1,37 @@
+<div class="col-top-strech"
+     cdkDrag
+     cdkDragRootElement="#name-dlg"
+     cdkDragBoundary=".cdk-overlay-container">
+
+    <div class="row-right dlg-header">
+        <div class="row-left dlg-title" cdkDragHandle>
+            {{title()}}
+        </div>
+        <button (click)="close()">
+            <i class="fa fa-times"></i>
+        </button>
+    </div>
+
+    <div class="col-top-strech" id="dlg-body">
+        <div class="col-top-strech cards-common">
+            <div class="row-left">
+                <label>name:</label>
+                <input #itemName
+                       id="itemName"
+                       type="text"
+                       [minLength]="minNameLen"
+                       [maxLength]="maxNameLen"
+                       size="16"
+                       [ngModel]="m_name()"
+                       (ngModelChange)="onNameChange($event)"
+                       (blur)="onNameBlur()">
+            </div>
+        </div>
+    </div>
+
+    <div class="row-right dlg-header">
+        <button (click)="save()">
+            save
+        </button>
+    </div>
+</div>
