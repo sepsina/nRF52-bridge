@@ -5,6 +5,8 @@ export const HEAD_LEN = 5;
 export const LEN_IDX = 2;
 export const CRC_IDX = 4;
 
+export const SHORT_BAT_REPORT = 2;
+
 export const DUMMY_SCROLL = '- scroll -';
 export const HIST_LEN = 50;
 
@@ -73,7 +75,7 @@ export const HTU21D_005_BAT = 503;
 export const ENS_015_BASE = 1500;
 export const ENS_015_AQ = 1501;
 
-export const SHT40_018_BASE = 1800;
+export const SHT40_018 = 1800;
 export const SHT40_018_T = 1801;
 export const SHT40_018_RH = 1802;
 export const SHT40_018_BAT = 1803;
@@ -104,7 +106,7 @@ export const PB_023 = 2300;
 export const PB_023_SW = 2301;
 export const PB_023_BAT = 2302;
 
-export const SSR_009_BASE = 900;
+export const SSR_009 = 900;
 export const SSR_009_RELAY = 901;
 
 export const ACTUATOR_010_BASE = 1000;

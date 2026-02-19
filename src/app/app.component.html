@@ -97,6 +97,14 @@
                 Graph
             </button>
         }
+        @if(batteryFlag){
+            <button
+                cdkMenuItem
+                class="ctx-menu-item"
+                (cdkMenuItemTriggered)="showBattery()">
+                Battery
+            </button>
+        }
         <button cdkMenuItem
                 class="ctx-menu-item"
                 (cdkMenuItemTriggered)="showAbout()">

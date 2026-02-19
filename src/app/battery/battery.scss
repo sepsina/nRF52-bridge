@@ -1,0 +1,86 @@
+:host {
+    display: flex;
+    min-width: 300px;
+    max-height: 80%;
+    border-radius: 6px;
+    background-color: white;
+}
+
+.dlg-header {
+    min-height: 40px;
+    background: #e8e8e8;
+    padding: 6px;
+}
+
+#dlg-all {
+    width: 100%;
+}
+
+#dlg-body {
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.dlg-title {
+    width: 100%;
+    padding-left: 6px;
+    user-select: none;
+    cursor: move;
+    color: gray;
+    font-size: 1rem;
+}
+
+.cards-common {
+    padding: 10px;
+    border: solid 1px lightgray;
+    border-radius: 10px;
+}
+
+.data-row-all {
+    min-height: 30px;
+}
+
+.data-row-all:last-child {
+    margin-bottom: 8px;
+}
+
+.data-row-label {
+    color: gray;
+}
+
+.data-row-value {
+    flex: 1 0 auto;
+    padding-right: 15px;
+    border-bottom: solid 1px lightgray;
+}
+
+.log-msg {
+    border-top: 1px solid lightblue;
+    padding: 6px;
+}
+.log-msg:last-child {
+    border-bottom: 1px solid lightblue;
+}
+.log-msg:hover {
+    background-color: lightgreen;
+}
+
+#rows {
+    gap: 12px;
+}
+
+#rows:last-child {
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 1.0rem;
+    color: gray;
+    padding: 4px 8px;
+}
+
+label {
+    white-space: nowrap;
+    color: gray;
+}
+

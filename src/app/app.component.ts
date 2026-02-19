@@ -77,6 +77,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ctrlFlag = false;
     graphFlag = false;
     corrFlag = false;
+    batteryFlag = false;
+
+    trash = 1;
 
     footerTmo: any;
     footerStatus = signal('');
@@ -499,6 +502,30 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     /***********************************************************************************************
+     * @fn          showBattery
+     *
+     * @brief
+     *
+     */
+    async showBattery() {
+
+        this.ctx_open.set(false);
+
+        const { Battery } = await import('./battery/battery');
+        const dlgRef = this.dialog.open(Battery, {
+            data: {
+                item: this.selItem.value,
+                partsMap: this.partMap
+            },
+            restoreFocus: false,
+
+        });
+        dlgRef.closed.subscribe((data)=>{
+            console.log(`battery dlg data: ${data}`);
+        });
+    }
+
+    /***********************************************************************************************
      * @fn          showSSR
      *
      * @brief
@@ -644,16 +671,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         this.corrFlag = false;
         switch(item.partNum){
             case gConst.ACUATOR_010_ON_OFF:
-            case gConst.SSR_009_RELAY: {
+            case gConst.SSR_009: {
                 this.ctrlFlag = true;
                 break;
             }
-            case gConst.SHT40_018_T:
-            case gConst.SHT40_018_RH:
-            case gConst.SI7021_027_T:
-            case gConst.SI7021_027_RH:
-            case gConst.HTU21D_005_T:
-            case gConst.HTU21D_005_RH: {
+            case gConst.SHT40_018: {
+                this.batteryFlag = true;
                 this.corrFlag = true;
                 break;
             }
@@ -662,7 +685,12 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         if(item.vals.length > 1){
             this.graphFlag = true;
         }
-
+        /*
+        this.batteryFlag = false;
+        if(item.battery.rep_size){
+            this.batteryFlag = true;
+        }
+        */
         this.ctx_open.set(true);
     }
 

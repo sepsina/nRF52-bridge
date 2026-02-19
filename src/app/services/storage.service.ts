@@ -31,6 +31,7 @@ export class StorageService {
     chartData = signal({} as gIF.netItem_t);
     tempEvent = signal({} as gIF.tempEvent_t);
     pbEvent = signal({} as gIF.pbEvent_t);
+    battEvent = signal({} as gIF.battEvent_t);
 
     nvThermostatsMap = new Map();
 

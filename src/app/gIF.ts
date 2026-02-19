@@ -31,9 +31,33 @@ export enum eType_t {
     E_TYPE_BATTERY
 }
 
+export enum eBattRepSize {
+    E_BATT_REP_SIZE_ZERO = 0,
+    E_BATT_REP_SIZE_SHORT,
+    E_BATT_REP_SIZE_FULL
+}
+
 export interface routing_t {
     len: number;
     hops: number[];
+}
+
+export interface battery_t {
+    rep_size: number;
+    v_bat: number | undefined;
+    i_bat: number | undefined;
+    i_chg: number | undefined;
+    i_bat_status: number | undefined;
+    ntc_status: number | undefined;
+    die_status: number | undefined;
+    chg_status: number | undefined;
+    chg_err: number | undefined;
+}
+
+export interface battEvent_t {
+    addr: number;
+    //endPoint: number;
+    battery: battery_t;
 }
 
 export interface netItem_t {
@@ -52,6 +76,7 @@ export interface netItem_t {
     endPoint: number;
     hops: number[];
     formatedVal: string;
+    battery: battery_t;
     timestamps: number[];
     vals: number[];
 }
@@ -65,6 +90,13 @@ export interface itemReport_t {
     partNum: number;
     addr: number;
     endPoint: number;
+    hops: number[];
+    data: number[];
+}
+
+export interface deviceReport_t {
+    partNum: number;
+    addr: number;
     hops: number[];
     data: number[];
 }
@@ -87,6 +119,20 @@ export interface itemProps_t {
     type: eType_t;
     hasHistory: boolean;
     formatedVal: string;
+    battery: battery_t;
+    units: number;
+    value: number;
+}
+
+export interface epProps_t {
+    endPoint: number;
+    valid: boolean;
+    isVisible: boolean;
+    group: eGroup_t;
+    type: eType_t;
+    hasHistory: boolean;
+    formatedVal: string;
+    battery: battery_t;
     units: number;
     value: number;
 }
