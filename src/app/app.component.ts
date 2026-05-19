@@ -669,8 +669,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
         this.ctrlFlag = false;
         this.corrFlag = false;
+        this.batteryFlag = false;
+        this.graphFlag = false;
+
         switch(item.partNum){
-            case gConst.ACUATOR_010_ON_OFF:
             case gConst.SSR_009: {
                 this.ctrlFlag = true;
                 break;
@@ -680,17 +682,15 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.corrFlag = true;
                 break;
             }
+            case gConst.PB_023: {
+                this.batteryFlag = true;
+                break;
+            }
         }
-        this.graphFlag = false;
         if(item.vals.length > 1){
             this.graphFlag = true;
         }
-        /*
-        this.batteryFlag = false;
-        if(item.battery.rep_size){
-            this.batteryFlag = true;
-        }
-        */
+
         this.ctx_open.set(true);
     }
 

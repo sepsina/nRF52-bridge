@@ -109,11 +109,13 @@ export class SSR  {
     setActuator(state: number){
 
         this.rwBuf.wrIdx = 0;
+        let rnd = Math.random() * 0xFFFFFFFF;
 
         this.rwBuf.write_uint8(gConst.USB_MSG_EP_CMD);
         for(let i = 0; i < gConst.HOPS_MAX; i++){
             this.rwBuf.write_uint8(this.selItem.hops[i]);
         }
+        this.rwBuf.write_uint32_LE(Math.floor(rnd));
         this.rwBuf.write_uint8(this.selItem.endPoint);
         this.rwBuf.write_uint8(1); // cmd_len
         this.rwBuf.write_uint8(state);

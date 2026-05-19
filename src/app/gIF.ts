@@ -72,6 +72,7 @@ export interface netItem_t {
     group: eGroup_t;
     type: eType_t;
     isValid: boolean;
+    frame_rnd: number;
     addr: number;
     endPoint: number;
     hops: number[];
@@ -125,6 +126,7 @@ export interface itemProps_t {
 }
 
 export interface epProps_t {
+    frame_rnd: number;
     endPoint: number;
     valid: boolean;
     isVisible: boolean;
