@@ -166,18 +166,9 @@ export class UsbService {
         switch(msgType){
             case gConst.USB_MSG_ITEM_REPORT: {
                 const devRep = {} as gIF.deviceReport_t;
-                const hops = [];
                 devRep.hops = [];
                 for(i = 0; i < gConst.HOPS_MAX; i++){
-                    devRep.hops.push(gConst.INVALID_ADDR);
-                    hop_addr = this.rwBuf.read_uint8();
-                    if(hop_addr != gConst.INVALID_ADDR){
-                        hops.push(hop_addr);
-                    }
-                }
-                hops.reverse();
-                for(i = 0; i < hops.length; i++){
-                    devRep.hops[i] = hops[i];
+                    devRep.hops[i] = this.rwBuf.read_uint8();
                 }
                 devRep.partNum = this.rwBuf.read_uint16_LE();
                 devRep.addr = this.rwBuf.read_uint8();

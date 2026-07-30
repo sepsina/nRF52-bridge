@@ -211,7 +211,7 @@ export class Battery implements OnInit {
         let rows: Array<dataRow_t> = [];
         let i = 0;
 
-        let v_bat = battery.v_bat! / 1024.0 * 5.0;
+        let v_bat = battery.v_bat! / 1023.0 * 5.0;
         rows.push({
             id: i++,
             label: 'v_bat:',
@@ -220,7 +220,7 @@ export class Battery implements OnInit {
         });
         if(battery.rep_size > gConst.SHORT_BAT_REPORT){
             const i_chg = battery.i_chg!;
-            const i_bat = (battery.i_bat!) / 1024.0 * (i_chg * 1.25); // * 1.25 for nPM1304
+            const i_bat = (battery.i_bat!) / 1023.0 * (i_chg * 1.25 * 4);
             rows.push({
                 id: i++,
                 label: 'i_bat:',
