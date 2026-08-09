@@ -8,9 +8,9 @@ import * as gConst from '../gConst';
 import * as gIF from '../gIF';
 
 const vID = 0x1915;
-const pID = 0x1067;
+//const pID = 0x1067;
 const options: USBDeviceRequestOptions = {
-    filters: [{vendorId: vID, productId: pID}]
+    filters: [{vendorId: vID/*, productId: pID*/}]
 };
 
 @Injectable({
